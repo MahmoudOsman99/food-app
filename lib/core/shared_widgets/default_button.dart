@@ -53,7 +53,7 @@ class DefualtButton extends StatelessWidget {
       ),
       onPressed: onPressed,
       child: Text(
-        AppStrings().signinText,
+        text,
         style: context.textList.labelLarge!.copyWith(
           color: AppColors.whiteColor,
         ),

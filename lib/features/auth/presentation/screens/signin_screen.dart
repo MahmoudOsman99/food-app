@@ -15,6 +15,7 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   bool isSavePassword = false;
 
   @override
@@ -49,7 +50,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 height: context.height / 3,
               ),
               Text(
-                AppStrings().signinSubText,
+                AppStrings.signinSubText,
                 textAlign: TextAlign.center,
                 style: context.textList.bodyMedium!.copyWith(
                   // fontWeight: FontWeight.bold,
@@ -67,36 +68,45 @@ class _SigninScreenState extends State<SigninScreen> {
                       const BoxDecoration(color: AppColors.lightOrangeColor),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AppStrings().phoneNumberText,
-                          style: context.textList.displayMedium!.copyWith(
-                            color: AppColors.blackTextColor,
+                    child: Form(
+                      key: formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AppStrings.phoneNumberText,
+                            style: context.textList.displayMedium!.copyWith(
+                              color: AppColors.blackTextColor,
+                            ),
                           ),
-                        ),
-                        DefaultTextFormField(
-                          controller: emailController,
-                          buttonInputStyle: TextInputAction.next,
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                        SizedBox(
-                          height: context.height * 0.02,
-                        ),
-                        Text(
-                          AppStrings().passwordText,
-                          style: context.textList.displayMedium!.copyWith(
-                            color: AppColors.blackTextColor,
+                          SizedBox(
+                            height: context.height * 0.01,
                           ),
-                        ),
-                        DefaultTextFormField(
-                          controller: passwordController,
-                          isPassword: true,
-                          buttonInputStyle: TextInputAction.done,
-                          keyboardType: TextInputType.visiblePassword,
-                        ),
-                      ],
+                          DefaultTextFormField(
+                            controller: emailController,
+                            buttonInputStyle: TextInputAction.next,
+                            keyboardType: TextInputType.emailAddress,
+                          ),
+                          SizedBox(
+                            height: context.height * 0.02,
+                          ),
+                          Text(
+                            AppStrings.passwordText,
+                            style: context.textList.displayMedium!.copyWith(
+                              color: AppColors.blackTextColor,
+                            ),
+                          ),
+                          SizedBox(
+                            height: context.height * 0.01,
+                          ),
+                          DefaultTextFormField(
+                            controller: passwordController,
+                            isPassword: true,
+                            buttonInputStyle: TextInputAction.done,
+                            keyboardType: TextInputType.visiblePassword,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -133,12 +143,15 @@ class _SigninScreenState extends State<SigninScreen> {
                   //Forgot password section
                   TextButton(
                     child: Text(
-                      AppStrings().forgotPasswordText,
+                      AppStrings.forgotPasswordText,
                       style: context.textList.bodyMedium!.copyWith(
                         color: AppColors.lighRedColor,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      //!TODO
+                      //TODO SUBMIT THE FORM
+                    },
                   ),
                 ],
               ),
@@ -148,7 +161,7 @@ class _SigninScreenState extends State<SigninScreen> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: DefualtButton(
-                    text: AppStrings().signinText,
+                    text: AppStrings.signinText,
                     onPressed: () {},
                   ),
                 ),

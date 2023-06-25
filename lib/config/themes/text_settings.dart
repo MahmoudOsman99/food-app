@@ -8,7 +8,7 @@ TextTheme textSettings = const TextTheme(
     fontWeight: FontWeight.w500,
   ),
   displayMedium: TextStyle(
-    fontSize: 20,
+    fontSize: 18,
     color: AppColors.blackTextColor,
   ),
   bodySmall: TextStyle(

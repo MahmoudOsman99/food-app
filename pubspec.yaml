@@ -14,6 +14,7 @@ dependencies:
   bloc: 
   flutter_bloc:
   equatable: 
+  flutter_otp_text_field:
 
   
 
